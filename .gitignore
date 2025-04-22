@@ -1,0 +1,24 @@
+# Системные и временные файлы
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Временные файлы редакторов
+*.swp
+*.swo
+*~
+*.bak
+*.orig
+
+# Файлы Python (если есть)
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Временные файлы Windows
+$RECYCLE.BIN/ 

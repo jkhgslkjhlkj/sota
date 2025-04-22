@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="SOTA - создайте уникальную версию вашего токена">
+    <meta name="theme-color" content="#121212">
+    <meta property="og:title" content="SOTA - Digital Fashion NFT">
+    <meta property="og:description" content="Создайте свою уникальную версию токена SOTA">
+    <meta property="og:image" content="images/1.png">
+    <title>SOTA</title>
+    
+    <!-- Фавиконки -->
+    <link rel="icon" href="images/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
+    <link rel="icon" type="image/png" href="images/favicon/favicon-1.png">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="header-content">
+                <div class="header-logo">
+                    <img src="images/sota.gif" alt="SOTA Logo" class="main-logo">
+                </div>
+                <p class="subtitle">Создайте свою уникальную версию токена</p>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container main-container">
+        <div class="model-wrapper">
+            <div class="glowing-effect"></div>
+            <div class="model">
+                <!-- Базовая модель, на которую будут накладываться элементы -->
+                <img id="base-model" src="images/body chell.png" alt="Базовая модель">
+                
+                <!-- Контейнеры для элементов кастомизации -->
+                <div id="body-item" class="item-layer body-layer"></div>
+                <div id="cloth-item" class="item-layer"></div>
+                <div id="head-item" class="item-layer"></div>
+                <div id="star-item" class="item-layer stars-layer"></div>
+                <div id="accessory-item" class="item-layer"></div>
+            </div>
+            <div class="controls">
+                <button id="reset-model" class="btn-reset">
+                    <span class="btn-text">Сбросить</span>
+                    <span class="btn-icon"><i class="fas fa-rotate"></i></span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="customization-panel">
+            <h2>Кастомизация</h2>
+            
+            <!-- Сворачиваемый раздел Тело -->
+            <div class="category collapsible-section active">
+                <div class="category-header">
+                    <h3><span class="category-icon"><i class="fas fa-user"></i></span>Тело</h3>
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </div>
+                <div class="category-content">
+                    <div class="items-grid" id="body-items">
+                        <div class="item" data-item="body chell.png" data-type="body">
+                            <div class="item-inner">
+                                <div class="item-preview">
+                                    <img src="images/body chell.png" alt="Обычный">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item" data-item="negro.png" data-type="body">
+                            <div class="item-inner">
+                                <div class="item-preview">
+                                    <img src="images/negro.png" alt="Черный">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item" data-item="metalic.png" data-type="body">
+                            <div class="item-inner">
+                                <div class="item-preview">
+                                    <img src="images/metalic.png" alt="Металлик">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Сворачиваемый раздел Одежда -->
+            <div class="category collapsible-section">
+                <div class="category-header">
+                    <h3><span class="category-icon"><i class="fas fa-shirt"></i></span>Одежда</h3>
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </div>
+                <div class="category-content">
+                    <div class="items-grid" id="cloth-items">
+                        <div class="item" data-item="hell chell.png" data-type="cloth">
+                            <div class="item-inner">
+                                <div class="item-preview">
+                                    <img src="images/hell chell.png" alt="Хелл">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item" data-item="hoodie chell.png" data-type="cloth">
+                            <div class="item-inner">
+                                <div class="item-preview">
+                                    <img src="images/hoodie chell.png" alt="Худи">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item" data-item="opm chell.png" data-type="cloth">
+                            <div class="item-inner">
+                                <div class="item-preview">
+                                    <img src="images/opm chell.png" alt="ОПМ">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item" data-item="keny chell.png" data-type="cloth">
+                            <div class="item-inner">
+                                <div class="item-preview">
+                                    <img src="images/keny chell.png" alt="Кени">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Сворачиваемый раздел Эффекты -->
+            <div class="category collapsible-section">
+                <div class="category-header">
+                    <h3><span class="category-icon"><i class="fas fa-sparkles"></i></span>Эффекты</h3>
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </div>
+                <div class="category-content">
+                    <div class="items-grid" id="effect-items">
+                        <div class="item" data-item="starchell.png" data-type="star">
+                            <div class="item-inner">
+                                <div class="item-preview">
+                                    <img src="images/starchell.png" alt="Звезды">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item" data-item="idkez.png" data-type="star">
+                            <div class="item-inner">
+                                <div class="item-preview">
+                                    <img src="images/idkez.png" alt="Шипы">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item" data-item="star 2.png" data-type="star">
+                            <div class="item-inner">
+                                <div class="item-preview">
+                                    <img src="images/star 2.png" alt="Двойные звезды">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Новые разделы -->
+    <section class="story-section">
+        <div class="container">
+            <h2 class="section-title">Story</h2>
+            <div class="story-content">
+                <p>Sota is an icon of digital fashion, born at the intersection of internet trends and virtual self-expression. He has an unmatched sense of style, allowing him to predict what will dominate the next season. Sota navigates digital platforms, gathering the boldest ideas and transforming them into NFT accessories that set the tone for the fashion world. His goal: to create the "Sota's Style Vault" collection, a symbol of the next generation of digital style, empowering owners to stand out in any online or offline space.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="roadmap-section">
+        <div class="container">
+            <h2 class="section-title">Roadmap</h2>
+            <div class="roadmap-content">
+                <p>Hey, my stylish friends! I'm Sota, and I'm here to create something incredible with you in the world of digital fashion. Welcome to Sota's Style Vault! Here's my plan for our community:</p>
+                
+                <div class="roadmap-item">
+                    <h3>I'm Launching the Sota Token</h3>
+                    <p>We'll kick things off with the release of my token—it'll be your pass to our ecosystem. With it, you'll be able to shape the future of our project and stay at the heart of the action.</p>
+                </div>
+                
+                <div class="roadmap-item">
+                    <h3>We'll Build a DAO for You</h3>
+                    <p>I want you to be more than just participants—I want you to be creators! That's why I'm setting up a decentralized organization (DAO), where every token holder can vote on new ideas and directions. This will be our shared stylish journey!</p>
+                </div>
+                
+                <div class="roadmap-item">
+                    <h3>I'll Unveil My NFT Collection</h3>
+                    <p>Next, I'll launch the "Sota's Style Vault" collection—10,000 unique NFTs with varying levels of rarity. Each token is a fashion accessory I've created for you to shine.</p>
+                </div>
+                
+                <div class="roadmap-item">
+                    <h3>Your NFTs Will Come to Life in the Metaverse</h3>
+                    <p>I'll make sure you can use your tokens in metaverse spaces! They'll become accessories for your avatars, letting you dazzle on virtual runways.</p>
+                </div>
+                
+                <div class="roadmap-item">
+                    <h3>You'll Be Able to Customize Your NFTs</h3>
+                    <p>I'll add the ability to customize your NFTs—add new patterns and colors to make them even more yours.</p>
+                </div>
+                
+                <div class="roadmap-item">
+                    <h3>We'll Support a Sustainable Future for Fashion</h3>
+                    <p>I'll allocate a portion of our project's proceeds to initiatives that make fashion more sustainable. Together, we'll make the world a better place!</p>
+                </div>
+                
+                <p class="roadmap-ending">Let's set the trends together! Join me in Sota's Style Vault!</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="manifesto-section">
+        <div class="container">
+            <h2 class="section-title">Manifesto</h2>
+            <div class="manifesto-content">
+                <blockquote>
+                    I am Sota, the icon of digital style. My mission is to redefine fashion through the power of NFTs. Each piece in my collection is a statement, a vibe, a revolution. Together, we will set the trends that the world follows. Join me, and let's make every scene a runway!
+                </blockquote>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 <span class="accent-text">SOTA</span>. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html> 
