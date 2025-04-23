@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="SOTA - создайте уникальную версию вашего токена">
+    <meta name="description" content="SOTA - create your unique token version">
     <meta name="theme-color" content="#121212">
     <meta property="og:title" content="SOTA - Digital Fashion NFT">
-    <meta property="og:description" content="Создайте свою уникальную версию токена SOTA">
+    <meta property="og:description" content="Create your unique SOTA token version">
     <meta property="og:image" content="images/1.png">
     <title>SOTA</title>
     
-    <!-- Фавиконки -->
+    <!-- Favicons -->
     <link rel="icon" href="images/favicon/favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
@@ -31,7 +31,7 @@
                 <div class="header-logo">
                     <img src="images/sota.gif" alt="SOTA Logo" class="main-logo">
                 </div>
-                <p class="subtitle">Создайте свою уникальную версию токена</p>
+                <p class="subtitle"><span class="highlighted-ca">CA: 2QQ48R9yh9jnAzWcQi4ddSqQMukYk26fvHREMEDcpump</span></p>
             </div>
         </div>
     </header>
@@ -40,10 +40,10 @@
         <div class="model-wrapper">
             <div class="glowing-effect"></div>
             <div class="model">
-                <!-- Базовая модель, на которую будут накладываться элементы -->
-                <img id="base-model" src="images/body chell.png" alt="Базовая модель">
+                <!-- Base model on which customization elements will be layered -->
+                <img id="base-model" src="images/body chell.png" alt="Base Model">
                 
-                <!-- Контейнеры для элементов кастомизации -->
+                <!-- Containers for customization elements -->
                 <div id="body-item" class="item-layer body-layer"></div>
                 <div id="cloth-item" class="item-layer"></div>
                 <div id="head-item" class="item-layer"></div>
@@ -52,19 +52,19 @@
             </div>
             <div class="controls">
                 <button id="reset-model" class="btn-reset">
-                    <span class="btn-text">Сбросить</span>
+                    <span class="btn-text">Reset</span>
                     <span class="btn-icon"><i class="fas fa-rotate"></i></span>
                 </button>
             </div>
         </div>
         
         <div class="customization-panel">
-            <h2>Кастомизация</h2>
+            <h2>Customization</h2>
             
-            <!-- Сворачиваемый раздел Тело -->
+            <!-- Collapsible Body Section -->
             <div class="category collapsible-section active">
                 <div class="category-header">
-                    <h3><span class="category-icon"><i class="fas fa-user"></i></span>Тело</h3>
+                    <h3><span class="category-icon"><i class="fas fa-user"></i></span>Body</h3>
                     <i class="fas fa-chevron-down toggle-icon"></i>
                 </div>
                 <div class="category-content">
@@ -72,21 +72,21 @@
                         <div class="item" data-item="body chell.png" data-type="body">
                             <div class="item-inner">
                                 <div class="item-preview">
-                                    <img src="images/body chell.png" alt="Обычный">
+                                    <img src="images/body chell.png" alt="Normal">
                                 </div>
                             </div>
                         </div>
                         <div class="item" data-item="negro.png" data-type="body">
                             <div class="item-inner">
                                 <div class="item-preview">
-                                    <img src="images/negro.png" alt="Черный">
+                                    <img src="images/negro.png" alt="Black">
                                 </div>
                             </div>
                         </div>
                         <div class="item" data-item="metalic.png" data-type="body">
                             <div class="item-inner">
                                 <div class="item-preview">
-                                    <img src="images/metalic.png" alt="Металлик">
+                                    <img src="images/metalic.png" alt="Metallic">
                                 </div>
                             </div>
                         </div>
@@ -94,10 +94,10 @@
                 </div>
             </div>
             
-            <!-- Сворачиваемый раздел Одежда -->
+            <!-- Collapsible Clothing Section -->
             <div class="category collapsible-section">
                 <div class="category-header">
-                    <h3><span class="category-icon"><i class="fas fa-shirt"></i></span>Одежда</h3>
+                    <h3><span class="category-icon"><i class="fas fa-shirt"></i></span>Clothing</h3>
                     <i class="fas fa-chevron-down toggle-icon"></i>
                 </div>
                 <div class="category-content">
@@ -105,28 +105,28 @@
                         <div class="item" data-item="hell chell.png" data-type="cloth">
                             <div class="item-inner">
                                 <div class="item-preview">
-                                    <img src="images/hell chell.png" alt="Хелл">
+                                    <img src="images/hell chell.png" alt="Hell">
                                 </div>
                             </div>
                         </div>
                         <div class="item" data-item="hoodie chell.png" data-type="cloth">
                             <div class="item-inner">
                                 <div class="item-preview">
-                                    <img src="images/hoodie chell.png" alt="Худи">
+                                    <img src="images/hoodie chell.png" alt="Hoodie">
                                 </div>
                             </div>
                         </div>
                         <div class="item" data-item="opm chell.png" data-type="cloth">
                             <div class="item-inner">
                                 <div class="item-preview">
-                                    <img src="images/opm chell.png" alt="ОПМ">
+                                    <img src="images/opm chell.png" alt="OPM">
                                 </div>
                             </div>
                         </div>
                         <div class="item" data-item="keny chell.png" data-type="cloth">
                             <div class="item-inner">
                                 <div class="item-preview">
-                                    <img src="images/keny chell.png" alt="Кени">
+                                    <img src="images/keny chell.png" alt="Keny">
                                 </div>
                             </div>
                         </div>
@@ -134,10 +134,10 @@
                 </div>
             </div>
             
-            <!-- Сворачиваемый раздел Эффекты -->
+            <!-- Collapsible Effects Section -->
             <div class="category collapsible-section">
                 <div class="category-header">
-                    <h3><span class="category-icon"><i class="fas fa-sparkles"></i></span>Эффекты</h3>
+                    <h3><span class="category-icon"><i class="fas fa-sparkles"></i></span>Effects</h3>
                     <i class="fas fa-chevron-down toggle-icon"></i>
                 </div>
                 <div class="category-content">
@@ -145,21 +145,21 @@
                         <div class="item" data-item="starchell.png" data-type="star">
                             <div class="item-inner">
                                 <div class="item-preview">
-                                    <img src="images/starchell.png" alt="Звезды">
+                                    <img src="images/starchell.png" alt="Stars">
                                 </div>
                             </div>
                         </div>
                         <div class="item" data-item="idkez.png" data-type="star">
                             <div class="item-inner">
                                 <div class="item-preview">
-                                    <img src="images/idkez.png" alt="Шипы">
+                                    <img src="images/idkez.png" alt="Spikes">
                                 </div>
                             </div>
                         </div>
                         <div class="item" data-item="star 2.png" data-type="star">
                             <div class="item-inner">
                                 <div class="item-preview">
-                                    <img src="images/star 2.png" alt="Двойные звезды">
+                                    <img src="images/star 2.png" alt="Double Stars">
                                 </div>
                             </div>
                         </div>
@@ -169,7 +169,7 @@
         </div>
     </main>
     
-    <!-- Новые разделы -->
+    <!-- New sections -->
     <section class="story-section">
         <div class="container">
             <h2 class="section-title">Story</h2>
@@ -183,7 +183,7 @@
         <div class="container">
             <h2 class="section-title">Roadmap</h2>
             <div class="roadmap-content">
-                <p>Hey, my stylish friends! I'm Sota, and I'm here to create something incredible with you in the world of digital fashion. Welcome to Sota's Style Vault! Here's my plan for our community:</p>
+                <p class="roadmap-intro">Hey, my stylish friends! I'm Sota, and I'm here to create something incredible with you in the world of digital fashion. Welcome to Sota's Style Vault! Here's my plan for our community:</p>
                 
                 <div class="roadmap-item">
                     <h3>I'm Launching the Sota Token</h3>
@@ -221,7 +221,7 @@
     </section>
     
     <section class="manifesto-section">
-        <div class="container">
+    <div class="container">
             <h2 class="section-title">Manifesto</h2>
             <div class="manifesto-content">
                 <blockquote>
@@ -237,6 +237,7 @@
         </div>
     </footer>
     
+    <!-- Используем только основной скрипт -->
     <script src="script.js"></script>
 </body>
 </html> 
