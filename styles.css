@@ -144,10 +144,24 @@ header {
 .header-container {
     display: flex;
     justify-content: center;
+    position: relative;
+    width: 100%;
 }
 
 .header-content {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.header-social {
+    position: absolute;
+    right: var(--spacing-lg);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
 }
 
 .header-logo {
@@ -596,18 +610,52 @@ header {
 
 /* Футер */
 footer {
-    text-align: center;
-    padding: var(--spacing-lg) 0;
-    margin-top: var(--spacing-xl);
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
-    border-top: 1px solid var(--border-color);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px 0;
+    margin-top: 50px;
+    position: relative;
+    z-index: 10;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 footer p {
-    color: var(--text-tertiary);
-    font-size: 0.9rem;
-    font-family: var(--font-secondary);
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    font-size: 14px;
+    margin: 0;
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+}
+
+.twitter-link {
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.twitter-link:hover {
+    transform: scale(1.1);
+}
+
+.twitter-gif {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 15px;
+    }
 }
 
 /* Кастомный скроллбар */
@@ -645,6 +693,10 @@ footer p {
     .model {
         width: 300px;
         height: 400px;
+    }
+    
+    .header-social {
+        right: var(--spacing-md);
     }
 }
 
@@ -686,6 +738,10 @@ footer p {
     
     .toggle-3d-view {
         padding: 8px;
+    }
+    
+    .header-social {
+        right: var(--spacing-sm);
     }
 }
 
@@ -736,6 +792,17 @@ footer p {
     
     .toggle-3d-view {
         padding: 8px;
+    }
+    
+    .header-social {
+        top: 15px;
+        right: 15px;
+        transform: none;
+    }
+    
+    .twitter-gif {
+        width: 50px;
+        height: 50px;
     }
 }
 
@@ -1357,4 +1424,10 @@ footer p {
 .btn-retry:hover {
     opacity: 0.9;
     transform: scale(1.05);
+}
+
+.header-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 } 
