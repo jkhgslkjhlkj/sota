@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Элементы DOM
+    // DOM Elements
     const baseModel = document.getElementById('base-model');
     const bodyItemLayer = document.getElementById('body-item');
     const headItemLayer = document.getElementById('head-item');
@@ -15,31 +15,31 @@ document.addEventListener('DOMContentLoaded', function() {
     const allButtons = document.querySelectorAll('button');
     const allClickableItems = document.querySelectorAll('.item, .category-header, button');
     
-    // Текущие выбранные элементы
+    // Current selected items
     let currentBodyItem = null;
     let currentHeadItem = null;
     let currentClothItem = null;
     let currentStarItem = null;
     
-    // По умолчанию открываем первую секцию
+    // By default, open the first section
     if (collapsibleSections.length > 0) {
         collapsibleSections[0].classList.add('active');
     }
     
-    // Обработчики для сворачиваемых разделов
+    // Event handlers for collapsible sections
     collapsibleSections.forEach(section => {
         const header = section.querySelector('.category-header');
         header.addEventListener('click', toggleSection);
     });
     
-    // Создание изображения с плавным появлением
+    // Create image with smooth appearance
     function createImage(src) {
         const img = document.createElement('img');
         img.src = src;
         img.style.opacity = '0';
         img.style.transform = 'scale(0.95)';
         
-        // Добавляем анимацию появления после загрузки изображения
+        // Add appearance animation after image loads
         img.onload = function() {
             setTimeout(() => {
                 img.style.opacity = '1';
@@ -50,15 +50,15 @@ document.addEventListener('DOMContentLoaded', function() {
         return img;
     }
     
-    // Функция для обработки выбора элемента
+    // Function to handle item selection
     function handleItemSelection(item, itemType) {
         const itemSrc = item.dataset.item;
         const type = item.dataset.type;
         
-        // Визуальный отклик при клике
+        // Visual response when clicked
         animateClick(item);
         
-        // Определяем целевой слой и коллекцию элементов на основе типа
+        // Determine target layer and item collection based on type
         let targetLayer, itemsCollection, currentItemVar;
         
         if (type === 'body') {
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
             itemsCollection = bodyItems.querySelectorAll('.item');
             currentItemVar = 'currentBodyItem';
             
-            // Скрываем базовую модель при выборе нового тела
+            // Hide base model when selecting a new body
             if (baseModel) {
                 baseModel.style.opacity = '0';
                 baseModel.style.transform = 'scale(0.95)';
@@ -80,34 +80,34 @@ document.addEventListener('DOMContentLoaded', function() {
             itemsCollection = effectItems.querySelectorAll('.item[data-type="star"]');
             currentItemVar = 'currentStarItem';
         } else {
-            return; // Неизвестный тип
+            return; // Unknown type
         }
         
-        // Удаление активного класса со всех элементов этого типа
+        // Remove active class from all items of this type
         itemsCollection.forEach(i => {
             if (i.dataset.type === type) {
                 i.classList.remove('active');
             }
         });
         
-        // Добавление активного класса к текущему элементу
+        // Add active class to current item
         item.classList.add('active');
         
-        // Очистка целевого слоя с плавным исчезновением
+        // Clear target layer with smooth disappearance
         const currentImage = targetLayer.querySelector('img');
         if (currentImage) {
             currentImage.style.opacity = '0';
             currentImage.style.transform = 'scale(0.95)';
             
-            // Ждем завершения анимации перед удалением
+            // Wait for animation to complete before removing
             setTimeout(() => {
                 targetLayer.innerHTML = '';
                 
-                // Добавление нового изображения на слой
+                // Add new image to layer
                 const img = createImage(`images/${itemSrc}`);
                 targetLayer.appendChild(img);
                 
-                // Если выбрана базовая модель как тело, показываем исходную модель
+                // If base model selected as body, show original model
                 if (type === 'body' && itemSrc === 'body chell.png') {
                     if (baseModel) {
                         baseModel.style.opacity = '1';
@@ -116,11 +116,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }, 200);
         } else {
-            // Если слой пуст, просто добавляем новое изображение
+            // If layer is empty, just add new image
             const img = createImage(`images/${itemSrc}`);
             targetLayer.appendChild(img);
             
-            // Если выбрана базовая модель как тело, показываем исходную модель
+            // If base model selected as body, show original model
             if (type === 'body' && itemSrc === 'body chell.png') {
                 if (baseModel) {
                     baseModel.style.opacity = '1';
@@ -129,17 +129,17 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         
-        // Обновление текущего элемента
+        // Update current item
         window[currentItemVar] = itemSrc;
     }
     
-    // Функция для анимации клика на элементе
+    // Function to animate click on element
     function animateClick(element) {
-        // Создаем эффект пульсации
+        // Create ripple effect
         const ripple = document.createElement('span');
         ripple.classList.add('ripple-effect');
         
-        // Позиционируем эффект в месте клика
+        // Position effect at click point
         const rect = element.getBoundingClientRect();
         const size = Math.max(rect.width, rect.height);
         
@@ -148,23 +148,23 @@ document.addEventListener('DOMContentLoaded', function() {
         ripple.style.top = '50%';
         ripple.style.transform = 'translate(-50%, -50%) scale(0)';
         
-        // Добавляем эффект к элементу
+        // Add effect to element
         element.appendChild(ripple);
         
-        // Удаляем эффект после анимации
+        // Remove effect after animation
         setTimeout(() => {
             ripple.remove();
         }, 600);
     }
     
-    // Обработчики для выбора элементов
+    // Event handlers for selecting items
     document.querySelectorAll('.item').forEach(item => {
         item.addEventListener('click', function() {
             handleItemSelection(this, this.dataset.type);
         });
     });
     
-    // Анимация для кнопки сброса при наведении
+    // Animation for reset button on hover
     if (resetModelBtn) {
         resetModelBtn.addEventListener('mouseenter', function() {
             const btnIcon = this.querySelector('.btn-icon');
@@ -180,12 +180,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Обработчик для кнопки сброса модели
+        // Event handler for reset model button
         resetModelBtn.addEventListener('click', function() {
-            // Анимация клика
+            // Click animation
             animateClick(this);
             
-            // Плавное исчезновение всех элементов перед удалением
+            // Smooth fade-out of all elements before removing
             const layers = [bodyItemLayer, headItemLayer, clothItemLayer, starItemLayer, accessoryItemLayer];
             
             layers.forEach(layer => {
@@ -196,23 +196,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
             
-            // Ждем завершения анимации перед удалением
+            // Wait for animation to complete before removing
             setTimeout(() => {
-                // Очистка всех слоев
+                // Clear all layers
                 layers.forEach(layer => {
                     layer.innerHTML = '';
                 });
                 
-                // Показываем базовую модель
+                // Show base model
                 if (baseModel) {
                     baseModel.style.opacity = '1';
                     baseModel.style.transform = 'scale(1)';
                 }
                 
-                // Удаление активных классов со всех элементов
+                // Remove active classes from all items
                 document.querySelectorAll('.item').forEach(i => i.classList.remove('active'));
                 
-                // Сброс текущих выбранных элементов
+                // Reset current selected items
                 currentBodyItem = null;
                 currentHeadItem = null;
                 currentClothItem = null;
@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Функция предзагрузки изображений
+    // Function to preload images
     function preloadImages() {
         const images = [
             'images/body chell.png',
@@ -247,16 +247,16 @@ document.addEventListener('DOMContentLoaded', function() {
     function toggleSection(event) {
         const section = event.currentTarget.closest('.collapsible-section');
         
-        // Анимация клика на заголовке
+        // Click animation on header
         animateClick(event.currentTarget);
         
-        // Просто переключаем состояние активности раздела
+        // Simply toggle active state of section
         section.classList.toggle('active');
     }
     
-    // Инициализация анимаций при наведении
+    // Initialize hover animations
     function initAnimations() {
-        // Добавляем обработчики анимаций при наведении на элементы
+        // Add hover animation handlers to items
         document.querySelectorAll('.item').forEach(item => {
             item.addEventListener('mouseenter', function() {
                 const img = this.querySelector('img');
@@ -274,9 +274,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Предзагружаем изображения при загрузке страницы
+    // Preload images when page loads
     preloadImages();
     
-    // Инициализация анимаций
+    // Initialize animations
     initAnimations();
+    
+    // FAQ accordion logic
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', function() {
+            item.classList.toggle('active');
+        });
+    });
 }); 
